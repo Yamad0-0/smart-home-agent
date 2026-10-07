@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Канбан-доска — Агент умного дома</title>
+<style>
+body { font-family: Arial, sans-serif; background: #c9b8e8; margin: 0; padding: 20px; }
+h1 { text-align: center; }
+.board { display: flex; gap: 16px; justify-content: center; }
+.column { background: #ede9f7; border-radius: 12px; padding: 12px; width: 300px; min-height: 400px; }
+.column h2 { text-align: center; font-size: 18px; }
+.card { background: white; border-radius: 8px; padding: 10px; margin: 8px 0; box-shadow: 0 2px 4px rgba(0,0,0,.2); cursor: grab; }
+.card b { display: block; margin-bottom: 4px; }
+.tag { display: inline-block; font-size: 12px; padding: 2px 8px; border-radius: 10px; margin-top: 6px; }
+.high { background: #ffb3b3; } .med { background: #ffe6a3; } .done-tag { background: #b3ffb3; }
+.hint { text-align: center; color: #333; margin-bottom: 12px; }
+</style>
+</head>
+<body>
+<h1>Канбан-доска: ООП-прототип агента умного дома</h1>
+<p class="hint">Карточки можно таскать мышкой между колонками. Для отчёта сделай скриншот этой страницы.</p>
+<div class="board">
+<div class="column" id="todo"><h2>To Do</h2>
+<div class="card" draggable="true"><b>Карточка 4: Прототип агента + правила</b>Реализовать правила: если motion==0 и свет горит — выключить; если T&gt;25 — охладить; если door==open и mode==away — тревога.<br><span class="tag med">средний</span></div>
+<div class="card" draggable="true"><b>Карточка 5: Тесты и отчёт</b>Добавить tests/test_agent.py, прогнать pytest, заполнить форму отчёта.<br><span class="tag med">средний</span></div>
+</div>
+<div class="column" id="progress"><h2>In Progress</h2>
+<div class="card" draggable="true"><b>Карточка 3: Проектирование классов ООП-агента</b>Спроектировать SensorEvent, Room, SmartHomeAgent, Controller.<br><span class="tag high">высокий</span></div>
+</div>
+<div class="column" id="done"><h2>Done</h2>
+<div class="card" draggable="true"><b>Карточка 1: Паспорт и структура ✅</b>docs/passport.md + папки data/src/tests/docs.<br><span class="tag done-tag">готово</span></div>
+<div class="card" draggable="true"><b>Карточка 2: Датасет датчиков ✅</b>data/smart_home_events_raw.csv, 20 строк.<br><span class="tag done-tag">готово</span></div>
+</div>
+</div>
+<script>
+document.querySelectorAll('.card').forEach(c=>{
+c.addEventListener('dragstart',e=>{e.dataTransfer.setData('text',c.outerHTML);setTimeout(()=>c.remove(),0);});
+});
+document.querySelectorAll('.column').forEach(col=>{
+col.addEventListener('dragover',e=>e.preventDefault());
+col.addEventListener('drop',e=>{e.preventDefault();col.insertAdjacentHTML('beforeend',e.dataTransfer.getData('text'));
+col.querySelectorAll('.card').forEach(nc=>{if(!nc.ondragstart){nc.setAttribute('draggable','true');nc.addEventListener('dragstart',ev=>{ev.dataTransfer.setData('text',nc.outerHTML);setTimeout(()=>nc.remove(),0);});}});});
+});
+</script>
+</body>
+</html>
