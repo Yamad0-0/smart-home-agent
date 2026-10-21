@@ -14,9 +14,13 @@ docs/  — passport.md (паспорт), backlog.md (бэклог)
 1. Посмотреть паспорт: `docs/passport.md`
 2. Посмотреть данные: `data/smart_home_events_raw.csv`
 3. Посмотреть бэклог: `docs/backlog.md`
-4. Запустить проверку данных:
+4. Запустить проверку данных и правил агента:
 ```
 python -m pytest tests/ -v
+```
+5. Посмотреть работу функций правил:
+```
+python src/home_rules.py
 ```
 
 ## Первый коммит

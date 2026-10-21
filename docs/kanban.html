@@ -21,8 +21,6 @@ h1 { text-align: center; }
 <p class="hint">Карточки можно таскать мышкой между колонками. Для отчёта сделай скриншот этой страницы.</p>
 <div class="board">
 <div class="column" id="todo"><h2>To Do</h2>
-<div class="card" draggable="true"><b>Карточка 4: Прототип агента + правила</b>Реализовать правила: если motion==0 и свет горит — выключить; если T&gt;25 — охладить; если door==open и mode==away — тревога.<br><span class="tag med">средний</span></div>
-<div class="card" draggable="true"><b>Карточка 5: Тесты и отчёт</b>Добавить tests/test_agent.py, прогнать pytest, заполнить форму отчёта.<br><span class="tag med">средний</span></div>
 </div>
 <div class="column" id="progress"><h2>In Progress</h2>
 <div class="card" draggable="true"><b>Карточка 3: Проектирование классов ООП-агента</b>Спроектировать SensorEvent, Room, SmartHomeAgent, Controller.<br><span class="tag high">высокий</span></div>
@@ -30,6 +28,8 @@ h1 { text-align: center; }
 <div class="column" id="done"><h2>Done</h2>
 <div class="card" draggable="true"><b>Карточка 1: Паспорт и структура ✅</b>docs/passport.md + папки data/src/tests/docs.<br><span class="tag done-tag">готово</span></div>
 <div class="card" draggable="true"><b>Карточка 2: Датасет датчиков ✅</b>data/smart_home_events_raw.csv, 20 строк.<br><span class="tag done-tag">готово</span></div>
+<div class="card" draggable="true"><b>Карточка 4: Прототип агента + правила ✅</b>src/home_rules.py: климат, безопасность, обработка событий.<br><span class="tag done-tag">готово</span></div>
+<div class="card" draggable="true"><b>Карточка 5: Тесты и отчёт ✅</b>tests/test_home_rules.py, pytest зелёный, docs/report_lesson6.md.<br><span class="tag done-tag">готово</span></div>
 </div>
 </div>
 <script>
