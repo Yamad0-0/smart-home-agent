@@ -5,7 +5,7 @@
 ## Структура
 ```
 data/  — smart_home_events_raw.csv (время, комната, температура, свет, движение, дверь, режим)
-src/   — исходный код будущего агента (ООП)
+src/   — home_state.py (структуры), home_rules.py (правила), agent.py (заготовка ООП)
 tests/ — тесты
 docs/  — passport.md (паспорт), backlog.md (бэклог)
 ```
@@ -21,6 +21,10 @@ python -m pytest tests/ -v
 5. Посмотреть работу функций правил:
 ```
 python src/home_rules.py
+```
+6. Посмотреть базовые структуры состояния агента (занятие 4):
+```
+python src/home_state.py
 ```
 
 ## Первый коммит
